@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Authority Service - Turn Your LinkedIn Into a Client Magnet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #0d1c32;
+            --primary-green: #006c49;
+            --accent-green: #6cf8bb;
+            --text-dark: #44474d;
+            --text-light: #00714d;
+            --bg-white: #ffffff;
+            --bg-light: #f8f9fa;
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+
+        .hero-section {
+            padding: 120px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--accent-green);
+            padding: 4px 12px;
+            border-radius: 12px;
+            margin-bottom: 32px;
+            animation: slideInDown 0.6s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .badge-icon {
+            width: 11.667px;
+            height: 7px;
+            display: inline-block;
+        }
+
+        .badge-text {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-light);
+            letter-spacing: 0.5px;
+        }
+
+        /* Main Heading */
+        .main-heading {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: clamp(40px, 8vw, 60px);
+            font-weight: 800;
+            color: var(--primary-dark);
+            line-height: 1.1;
+            margin-bottom: 32px;
+            max-width: 896px;
+            letter-spacing: -1.2px;
+            animation: slideInUp 0.8s ease-out 0.1s both;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Subheading */
+        .subheading {
+            font-size: clamp(16px, 3vw, 20px);
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            max-width: 672px;
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        /* Description */
+        .description {
+            font-size: clamp(14px, 2vw, 16px);
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 32px;
+            max-width: 576px;
+            animation: slideInUp 0.8s ease-out 0.3s both;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: var(--bg-white);
+            padding: 20px 40px;
+            border-radius: 2px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            animation: slideInUp 0.8s ease-out 0.4s both;
+            text-align: center;
+            min-width: 250px;
+        }
+
+        .cta-button:hover {
+            background-color: #005a3f;
+            transform: translateY(-3px);
+            box-shadow: 0px 15px 25px -3px rgba(0, 0, 0, 0.15), 0px 6px 10px -4px rgba(0, 0, 0, 0.12);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+            box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero Image */
+        .hero-image-container {
+            margin-top: 32px;
+            padding-top: 32px;
+            width: 100%;
+            animation: slideInUp 0.8s ease-out 0.5s both;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            min-height: 400px;
+            border-radius: var(--border-radius);
+            box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* ============================================
+           FORM SECTION
+           ============================================ */
+
+        .form-section {
+            padding: 80px 24px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #f0f3ff 100%);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--bg-white);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .form-header {
+            margin-bottom: 40px;
+            animation: slideInUp 0.8s ease-out 0.1s both;
+        }
+
+        .form-title {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: clamp(24px, 5vw, 32px);
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .form-subtitle {
+            font-size: 16px;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            animation: slideInUp 0.8s ease-out both;
+        }
+
+        .form-group:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .form-group:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .form-group:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .form-group:nth-child(4) {
+            animation-delay: 0.5s;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            font-size: 14px;
+            letter-spacing: 0.3px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e4e8;
+            border-radius: 6px;
+            font-size: 16px;
+            font-family: inherit;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(0, 108, 73, 0.1);
+        }
+
+        input[type="text"]::placeholder,
+        input[type="email"]::placeholder,
+        input[type="tel"]::placeholder {
+            color: #a8adb5;
+        }
+
+        .form-actions {
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            animation: slideInUp 0.8s ease-out 0.6s both;
+        }
+
+        .form-submit {
+            display: inline-block;
+            width: 100%;
+            background-color: var(--primary-green);
+            color: var(--bg-white);
+            padding: 16px 24px;
+            border-radius: 6px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .form-submit:hover {
+            background-color: #005a3f;
+            transform: translateY(-2px);
+            box-shadow: 0px 10px 20px rgba(0, 108, 73, 0.2);
+        }
+
+        .form-submit:active {
+            transform: translateY(0);
+        }
+
+        .payment-link-button {
+            display: inline-block;
+            width: 100%;
+            background-color: var(--accent-green);
+            color: var(--text-light);
+            padding: 16px 24px;
+            border-radius: 6px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            border: 2px solid var(--accent-green);
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        .payment-link-button:hover {
+            background-color: transparent;
+            color: var(--text-light);
+            transform: translateY(-2px);
+            box-shadow: 0px 10px 20px rgba(108, 248, 187, 0.2);
+        }
+
+        .form-agreement {
+            font-size: 12px;
+            color: #8b8d91;
+            text-align: center;
+            margin-top: 16px;
+            line-height: 1.5;
+        }
+
+        .form-agreement a {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .form-agreement a:hover {
+            text-decoration: underline;
+            color: #005a3f;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 16px;
+            }
+
+            .form-container {
+                padding: 32px 24px;
+            }
+
+            .main-heading {
+                font-size: 32px;
+            }
+
+            .hero-image {
+                min-height: 300px;
+            }
+
+            .cta-button {
+                width: 100%;
+                min-width: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 40px 16px;
+            }
+
+            .hero-image {
+                min-height: 240px;
+            }
+
+            .form-container {
+                padding: 24px 16px;
+                margin: 0 auto;
+            }
+
+            .form-title {
+                font-size: 24px;
+            }
+
+            .cta-button {
+                font-size: 16px;
+            }
+
+            .badge {
+                font-size: 12px;
+            }
+        }
+
+        /* ============================================
+           ACCESSIBILITY
+           ============================================ */
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* ============================================
+           UTILITY CLASSES
+           ============================================ */
+
+        .hidden {
+            display: none;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            border: 2px solid #28a745;
+            color: #155724;
+            padding: 16px;
+            border-radius: 6px;
+            margin-bottom: 24px;
+            animation: slideInDown 0.5s ease-out;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero-section">
+        <!-- Badge -->
+        <div class="badge">
+            <svg class="badge-icon" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 4L4 6L11 1" stroke="#00714d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="badge-text">LinkedIn Authority Service</span>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="main-heading">Turn Your LinkedIn Into a Client Magnet</h1>
+
+        <!-- Subheading -->
+        <p class="subheading">From zero to authority—done for you. Strategy, content, and growth handled so you can focus on what you do best.</p>
+
+        <!-- Description -->
+        <p class="description">No more guessing what to post. No more inconsistent growth. Get a clear system that builds your personal brand, attracts the right audience, and converts attention into real opportunities.</p>
+
+        <!-- CTA Button -->
+        <a href="#form-section" class="cta-button">Start Growing My LinkedIn</a>
+
+        <!-- Hero Image -->
+        <div class="hero-image-container">
+            <img 
+                src="https://www.figma.com/api/mcp/asset/2b45acab-10d4-48ae-8873-804f992cdc42" 
+                alt="LinkedIn Authority Dashboard Strategy Tool" 
+                class="hero-image"
+                loading="lazy"
+            />
+        </div>
+    </section>
+
+    <!-- ============================================
+         FORM SECTION
+         ============================================ -->
+    <section class="form-section" id="form-section">
+        <div class="form-container">
+            <div class="form-header">
+                <h2 class="form-title">Get Your Free Audit</h2>
+                <p class="form-subtitle">Join 2,500+ professionals building LinkedIn authority. Start with a free audit for just ₹1.</p>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                ✓ Thank you! We'll review your profile and send the audit to your email within 24 hours.
+            </div>
+
+            <form id="auditForm" onsubmit="handleFormSubmit(event)">
+                <!-- Name Field -->
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="Enter your full name"
+                        required
+                    />
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Enter your email address"
+                        required
+                    />
+                </div>
+
+                <!-- Phone Field -->
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        placeholder="Enter your phone number"
+                        required
+                    />
+                </div>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <button type="submit" class="form-submit">Get Your Free Audit (₹1)</button>
+                    <a href="https://payments.cashfree.com/forms/getaudit" target="_blank" class="payment-link-button">
+                        → Complete Payment & Get Audit
+                    </a>
+                </div>
+
+                <p class="form-agreement">
+                    By proceeding, you agree to our <a href="#terms">Terms of Service</a> and <a href="#privacy">Privacy Policy</a>
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            // Validate form
+            if (!name || !email || !phone) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            // Show success message
+            const successMsg = document.getElementById('successMessage');
+            successMsg.classList.add('show');
+            
+            // Reset form
+            document.getElementById('auditForm').reset();
+            
+            // Optional: Store data (you can integrate with your backend here)
+            const formData = {
+                name: name,
+                email: email,
+                phone: phone,
+                timestamp: new Date().toISOString()
+            };
+            
+            console.log('Form Data:', formData);
+            
+            // Redirect to payment after 2 seconds
+            setTimeout(() => {
+                window.open('https://payments.cashfree.com/forms/getaudit', '_blank');
+            }, 2000);
+        }
+
+        // Smooth scroll enhancement
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Form input focus animation
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.01)';
+            });
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
